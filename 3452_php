@@ -1,0 +1,21 @@
+<?php
+    $fst=str_replace(array("\r\n","\r","\n"),'',fgets(STDIN));
+    $data=[];
+    while(1){
+        $indata=fgets(STDIN);
+        if($indata=="") break;
+        array_push($data,preg_split("/[=]+/",$indata));
+    }
+    $wd=0;
+    for($i=0;$i<3;$i++){
+        $wdr=mb_strlen($data[$i][0]);
+        if($wd<$wdr) $wd=$wdr;
+    }
+    for($i=0;$i<3;$i++){
+        if($fst=="r"){
+            echo str_pad($data[$i][0],$wd,".",STR_PAD_LEFT)."=".$data[$i][1];
+        }elseif($fst=="l"){
+            echo str_pad($data[$i][0],$wd,".",STR_PAD_RIGHT)."=".$data[$i][1];
+        }
+            
+    }
