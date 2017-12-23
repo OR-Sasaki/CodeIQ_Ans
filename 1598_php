@@ -1,0 +1,17 @@
+<?php
+$a="hoge";
+$data=[];
+$ans="";
+    while(1){
+        $a=fgets(STDIN);
+        if($a=="") break;
+        array_push($data,str_replace(array("\r\n","\r","\n"),'',preg_split("/[,]+/",$a)));
+    }
+    for($i=0;$i<(count($data[0]));$i++){
+        $ch=[];
+        for($k=0;$k<(count($data));$k++){
+            array_push($ch,$data[$k][$i]);
+        }
+        $ans=$ans.(count(array_unique($ch))-1).",";
+    }
+    echo substr($ans,0,-1);
