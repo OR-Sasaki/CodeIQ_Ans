@@ -1,0 +1,13 @@
+fst=input()
+data=[]
+wd=0
+for i in range(3):
+    data.append(input().split("="))
+    ch=len(data[i][0])
+    if wd<ch:
+        wd=ch
+for i in range(3):
+    if fst=="l":
+        print(data[i][0].ljust(wd,".")+"="+data[i][1])
+    elif fst=="r":
+        print(data[i][0].rjust(wd,".")+"="+data[i][1])
