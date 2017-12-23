@@ -1,0 +1,12 @@
+data = []
+st = ""
+try:
+    while 1:
+        data.append([i for i in input().split(",")])    
+except EOFError:
+    del data[0]
+    rg = len(data[0])
+for k in range(rg):
+    lt = [data[i][k] for i in range(len(data))]
+    st += str(len(set(lt))) + ","
+print(st[:-1])
