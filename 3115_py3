@@ -1,0 +1,16 @@
+while(1):
+    try:
+        data=[int(x)for x in list(input())]
+        bx=data[0] if  data[0]!=0 else data[1]
+        if 0 in data:
+            for i in range(4):
+                if bx>data[i]:
+                    if data[i]!=0:
+                        bx=data[i]
+        else:
+            for i in range(4):
+                if bx<data[i]:
+                    bx=data[i]
+        print(bx)
+    except(EOFError):
+        break;
