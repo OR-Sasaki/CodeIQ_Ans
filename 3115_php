@@ -1,0 +1,19 @@
+<?php
+    while(1){
+        $data = [];
+        $a=str_replace(array("\r\n","\r","\n"),'',fgets(STDIN));
+        if($a=="") break;
+        for($i=0;$i<strlen($a);$i++){
+            array_push($data,$a[$i]);
+        }
+        for($i=0;$i<count($data);$i++){
+            for($k=$i;$k<count($data);$k++){
+                if($data[$i]>$data[$k]){
+                    $hoge=$data[$i];
+                    $data[$i]=$data[$k];
+                    $data[$k]=$hoge;
+                }
+            }
+        }
+        echo ($data[0]==0?$data[1]:$data[3])."\n";
+    }
