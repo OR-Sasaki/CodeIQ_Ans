@@ -1,0 +1,14 @@
+<?php
+    while(1){
+        $b=99;
+        $a=str_replace(array("\r\n","\r","\n"),'',fgets(STDIN));
+        if($a=="") break;
+        for($i=0;$i<strlen($a);$i++){
+            if(abs(substr($a,$i,1)-$b)==1){
+                $a=substr_replace($a,"",$i-1,2);
+                $i=0;
+            }
+            $b=substr($a,$i,1);
+        }
+        echo $a."\n";
+    }
