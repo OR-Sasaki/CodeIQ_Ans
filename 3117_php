@@ -1,0 +1,10 @@
+<?php
+    while(1){
+        $data=fgets(STDIN);
+        if($data=="") break;
+        if($data%2==0){
+            echo "0"."\n";
+        }else{
+            echo ceil(floor(1999999/$data)/2)."\n";
+        }
+    }
