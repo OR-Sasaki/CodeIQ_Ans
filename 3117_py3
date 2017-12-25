@@ -1,0 +1,11 @@
+import math
+while(1):
+    try:
+        data=int(input())
+        if data%2==0:
+            ans=0
+        else:
+            ans=math.ceil(int(1999999/data)/2)
+        print(ans)
+    except(EOFError):
+        break
