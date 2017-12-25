@@ -1,0 +1,26 @@
+data=[]
+ans=[]
+rank=[]
+try:
+    while 1:
+        data.append([i for i in input().split(" ")])    
+except EOFError:
+    None
+for i in range(len(data)):
+    add=0
+    for k in range(len(data[0])):
+        add+=1/int(data[i][k])
+    ans.append(len(data[i])/add)
+for i in range(len(data)):
+    rankd=1
+    for k in range(0,len(data)):
+        if (ans[i]>ans[k]) and (ans[i]!=ans[k]):
+            rankd+=1
+    rank.append(rankd)
+dup=[e for e in set(rank) if rank.count(e) > 1]
+for i in range(len(dup)):
+    for k in range(len(rank)):
+        if dup[i]==rank[k]:
+            rank[k]+=1
+for i in range(len(rank)):
+    print(rank[i])
