@@ -1,0 +1,58 @@
+<?php
+$a="hoge";
+$data=[];
+$ans=[];
+$rank=[];
+$dup=[];
+function arrayGetDuplicate($array){
+    $duplicate = array();
+    $already = array();
+
+    foreach ($array as $key=>$value){
+        foreach ($array as $key2=>$value2) {
+            if($key == $key2){
+                continue;
+            }
+            if(in_array($key2, $already)){
+                continue;
+            }
+            if($array[$key] == $array[$key2]){
+                $already[] = $key;
+                $duplicate[] = $array[$key] ;
+            }
+        }
+    }
+    return $duplicate;
+}
+while(1){
+    $a=fgets(STDIN);
+    if($a=="") break;
+    array_push($data,preg_split("/[\s]+/",str_replace(array("\r\n","\r","\n"),'',$a)));
+}
+for($i=0;$i<count($data);$i++){
+    $add=0;
+    for($k=0;$k<count($data[0]);$k++){
+        $add+=1/$data[$i][$k];
+    }
+    array_push($ans,count($data[$i])/$add);
+}
+for($i=0;$i<count($data);$i++){
+    $rankd=1;
+    for($k=0;$k<count($data);$k++){
+        if(($ans[$i]>$ans[$k])&&($ans[$i]!=$ans[$k])){
+            $rankd++;
+        }
+    }
+    array_push($rank,$rankd);
+}
+$dup=arrayGetDuplicate($rank);
+for($i=0;$i<count($dup);$i++){
+    for($k=0;$k<count($rank);$k++){
+        if($dup[$i]==$rank[$k]){
+            $rank[$k]++;
+        }
+    }
+}
+for($i=0;$i<count($rank);$i++){
+    echo $rank[$i]."\n";
+}
