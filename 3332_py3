@@ -1,0 +1,55 @@
+<?php
+function a($n,$m){
+        for($i=1;$i<$m;$i++){
+            $n*=10;
+        }
+        return $n;
+    }
+    function fib($n) {
+        $num1 = 1;
+        $num2 = 1;
+        $tmp = 1;
+        for ($i =1; $i<$n-1; $i++) {
+            $tmp = $num1 + $num2;
+            if($tmp>=16){
+                $tmp%=16;
+            }
+            $num1 = $num2;
+            $num2 = $tmp;
+        }
+        return $tmp;
+    }
+    function keta($n){
+        $count=0;
+        for($i=10;;$i*=10){
+            if(($n/$i)<=1){
+                break;
+            }
+            $count++;
+        }
+        return $count;
+    }
+    function fibL($n) {
+        $num1 = 11;
+        $num2 = 13;
+        $tmp = 1;
+        echo "a".(a(10,keta($n)))."\n";
+        for ($i =(a(10,keta($n))); $i<$n-1; $i++) {
+            $tmp = $num1 + $num2;
+            if($tmp>=16){
+                $tmp%=16;
+            }
+            $num1 = $num2;
+            $num2 = $tmp;
+        }
+        return $tmp;
+    }
+    for(;;){
+        $key = fgets(STDIN);
+        if($key=="") break;
+        if($key>=102){
+            echo fibL($key)."\n";
+        }else{
+            echo fib($key)."\n";
+        }
+    }
