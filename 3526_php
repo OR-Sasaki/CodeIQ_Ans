@@ -1,0 +1,14 @@
+<?php
+    $data=fgets(STDIN);
+    if($data%2!=0){
+        for($i=0;$i<$data-1;$i++){
+            $x=floor($i/2);
+            $outside=str_repeat(".",$x);
+            $inside=str_repeat(".",$data-(2+$x*2));
+            echo $outside."v".($inside)."v"."$outside"."\n";
+        }
+        $lastside=str_repeat(".",floor(($data-1)/2));
+        echo $lastside."v".$lastside."\n";
+    }else{
+        echo "invalid";
+    }
