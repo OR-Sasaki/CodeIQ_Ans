@@ -1,0 +1,9 @@
+data=int(input())
+if data%2!=0:
+    for k in range(data-1):
+        x=int(k/2)
+        inside="."*x+"v"+"."*(data-(2+x*2))+"v"+"."*x
+        print(inside)
+    print("."*int((data-1)/2)+"v"+"."*int((data-1)/2)+"\n")
+else:
+    print("invalid")
